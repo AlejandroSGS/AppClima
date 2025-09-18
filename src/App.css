@@ -70,6 +70,26 @@ input{
     text-align: left;
 }
 
+/* Placeholder adaptado al tema */
+body.tema-Claro input::placeholder{
+  color: #666;
+}
+body.tema-Oscuro input::placeholder{
+  color: #bbb;
+}
+
+/* Input adaptado al tema */
+body.tema-Claro input{
+  background-color: #fff;
+  color: #000;
+  border-color: #ccc;
+}
+body.tema-Oscuro input{
+  background-color: #222;
+  color: #fff;
+  border-color: #555;
+}
+
 .search-bar{
   display: flex;
   align-items: center;
