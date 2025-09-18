@@ -43,6 +43,7 @@ function App() {
         ciudad={ciudad}
         onChange={(e) => setCiudad(e.target.value)}
         onSearch={handleSearch}
+        ref={inputRef}
       />
 
       <Status cargando={cargando} error={error} />
