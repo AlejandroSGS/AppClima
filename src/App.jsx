@@ -11,6 +11,11 @@ function App() {
   const inputRef = useRef(null);
 
   useEffect(() => {
+    document.body.classList.toggle('tema-Claro', claro);
+    document.body.classList.toggle('tema-Oscuro', !claro);
+  }, [claro]);
+
+  useEffect(() => {
     if (clima) {
       document.title = `Weather App - ${ciudad}`;
     }
@@ -84,7 +89,11 @@ function App() {
       
 
   return (
-    <div className={`Aplicacion ${claro ? "tema-Claro" : "tema-Oscuro"}`}>
+    <>
+      <button className="theme-toggle" onClick={() => setClaro(!claro)}>
+        {claro ? "🌙 Oscuro" : "☀️ Claro"}
+      </button>
+      <div className={`Aplicacion ${claro ? "tema-Claro" : "tema-Oscuro"}`}>
       <h1>Weather App</h1>
 
       <input
@@ -95,9 +104,6 @@ function App() {
         ref={inputRef}
       />
       <button onClick={handleSearch} id="BUSCAR">Buscar</button>
-      <button onClick={() => setClaro(!claro)}>
-        {claro ? "🌙 Oscuro" : "☀️ Claro"}
-      </button>
 
       {cargando && <p>Cargando...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -115,7 +121,8 @@ function App() {
           }} id="LIMPIAR">LIMPIAR INFOMRACION</button>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }
 
